@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sync Request Repro</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <button id="sync-request-button">Test Sync Request</button>
+      <div id="counter"></div>
+    </div>
+    <script>
+      var count = 0;
+      setInterval(() => {
+        $('#counter').text(`${count}`)
+        count++
+      }, 100)
+
+      $('#sync-request-button').on('click', () => {
+        $.ajax({
+          type: 'POST',
+          url: 'https://httpbin.org/post',
+          dataType: 'json',
+          contentType: 'application/json',
+          cache: false,
+          async: false,
+          data: JSON.stringify({
+              conceptId: '1234',
+              lang: 'en',
+              text: 'test',
+          }),
+          success: function (data) {
+            $('#test-async-false').text(JSON.stringify(data))              
+          },
+        });
+      })
+    </script>
+  </body>
+</html>

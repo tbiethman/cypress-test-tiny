@@ -25,4 +25,9 @@ describe('new feature functionality', () => {
     cy.wait(500)
     expect(true).to.eq(true)
   })
+
+  it('has another passing test', () => {
+    cy.wait(500)
+    expect(true).to.eq(true)
+  })
 })

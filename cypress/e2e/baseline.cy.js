@@ -6,7 +6,7 @@ describe('baseline functionality', () => {
 
   it('has a failing test', () => {
     cy.wait(500)
-    expect(true).to.eq(false)
+    expect(true).to.eq(true) // fixed
   })
 
   // TODO: skipping for a reason

@@ -38,4 +38,12 @@ describe('new feature functionality', () => {
   it('tests milestone 2 change 2', () => {
     expect(true).to.eq(false)
   })
+
+  it('tests milestone 3 change 1', () => {
+    expect(true).to.eq(false)
+  })
+
+  it.skip('tests milestone 3 change 2', () => {
+    expect(true).to.eq(false)
+  })
 })

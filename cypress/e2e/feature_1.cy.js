@@ -30,4 +30,12 @@ describe('new feature functionality', () => {
     cy.wait(500)
     expect(true).to.eq(true)
   })
+
+  it('tests milestone 2 change 1', () => {
+    expect(true).to.eq(false)
+  })
+
+  it('tests milestone 2 change 2', () => {
+    expect(true).to.eq(false)
+  })
 })

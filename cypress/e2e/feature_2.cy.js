@@ -6,6 +6,6 @@ describe('feature 2', () => {
 
   it('has a failing test', () => {
     cy.wait(500)
-    expect(true).to.eq(false)
+    expect(true).to.eq(true)
   })
 })

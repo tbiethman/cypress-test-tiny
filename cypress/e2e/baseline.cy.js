@@ -25,4 +25,10 @@ describe('baseline functionality', () => {
     cy.wait(500)
     expect(true).to.eq(true)
   })
+
+  for(let i = 0; i < 1000; i++) {
+    it.skip(`skipped test ${i+1}`, () => {
+      expect(true).to.eq(false)
+    })
+  }
 })

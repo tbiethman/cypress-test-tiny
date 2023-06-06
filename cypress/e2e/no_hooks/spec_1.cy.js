@@ -1,4 +1,13 @@
 describe('spec_1', () => {
+  beforeEach(() => {
+    console.log('beforeEach 1')
+  })
+
+  afterEach(() => {
+    console.log('afterEach 1')
+  })
+
+
   it('has a passing test', () => {
     cy.wait(500)
     expect(true).to.eq(true)

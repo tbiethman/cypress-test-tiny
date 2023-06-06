@@ -8,16 +8,20 @@ describe('spec_2', () => {
   })
   
   context('context 1', () => {
-    before(() => {
-      console.log('beforeAll 2')
-    })
-
     after(() => {
       console.log('afterAll 2')
     })  
 
     beforeEach(() => {
       console.log('beforeEach 1')
+    })
+
+    beforeEach(() => {
+      console.log('beforeEach 2')
+    })
+
+    beforeEach(() => {
+      console.log('beforeEach 3')
     })
 
     afterEach(() => {

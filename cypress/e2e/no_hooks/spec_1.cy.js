@@ -1,4 +1,4 @@
-describe('baseline functionality', () => {
+describe('spec_1', () => {
   it('has a passing test', () => {
     cy.wait(500)
     expect(true).to.eq(true)
@@ -19,10 +19,5 @@ describe('baseline functionality', () => {
     const attempt = cy.state('runnable')._currentRetry
 
     expect(attempt).to.eq(3)
-  })
-
-  it('has another passing test', () => {
-    cy.wait(500)
-    expect(true).to.eq(true)
   })
 })

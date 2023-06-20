@@ -20,4 +20,8 @@ describe('baseline functionality', () => {
 
     expect(attempt).to.eq(3)
   })
+
+  it('does the thing', () => {
+    expect(true).to.eq(true)
+  })
 })

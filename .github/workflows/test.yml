@@ -41,6 +41,7 @@ jobs:
           echo "GitHub Ref: $GITHUB_REF"
           echo "GitHub Ref Name: $GITHUB_REF_NAME"
           echo "GitHub Head Ref: $GITHUB_HEAD_REF"
+          echo "GitHub Event: $GITHUB_EVENT_NAME"
 
       - uses: actions/github-script@v6
         id: get_issue_number

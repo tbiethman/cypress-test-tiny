@@ -38,6 +38,10 @@ jobs:
           echo "The run id is: $GITHUB_RUN_ID"
           echo "The GitHub Actor's username is: $GITHUB_ACTOR"
           echo "GitHub SHA: $GITHUB_SHA"
+          echo "GitHub Ref: $GITHUB_REF"
+          echo "GitHub Ref Name: $GITHUB_REF_NAME"
+          echo "GitHub Head Ref: $GITHUB_HEAD_REF"
+
   e2e:
     runs-on: ubuntu-20.04
     steps:

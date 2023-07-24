@@ -1,5 +1,5 @@
 module.exports = {
-  projectId: "ukff1b",
+  projectId: "4xsyji",
   e2e: {
     setupNodeEvents(on, config) {},
   },

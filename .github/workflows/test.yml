@@ -75,6 +75,8 @@ jobs:
           record: true
         env:
           DEBUG: commit-info
+          # testing to make sure passthrough is working as expected
+          GH_BRANCH: gha-testing
           # pass the Cypress Cloud record key as an environment variable
           CYPRESS_RECORD_KEY: 09d7100d-e15b-4463-b523-43cde830ffce
           # pass GitHub token to allow accurately detecting a build vs a re-run build

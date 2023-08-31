@@ -81,4 +81,6 @@ jobs:
           CYPRESS_RECORD_KEY: 09d7100d-e15b-4463-b523-43cde830ffce
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_PULL_REQUEST_ID: 99
+          CYPRESS_PULL_REQUEST_URL: https://github.com/tbiethman/cypress-test-tiny/issues/99
 

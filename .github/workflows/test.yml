@@ -70,7 +70,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Cypress tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@0ccc977dc25e8c518d6e064b0f08d36dbc903002
         with:
           record: true
         env:

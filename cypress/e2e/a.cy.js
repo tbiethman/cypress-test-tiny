@@ -1,4 +1,4 @@
-describe('feature 2', () => {
+describe('a', () => {
   it('has a passing test', () => {
     cy.wait(5000)
     expect(true).to.eq(true)

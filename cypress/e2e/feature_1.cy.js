@@ -38,4 +38,14 @@ describe('new feature functionality', () => {
   it('tests milestone 2 change 2', () => {
     expect(true).to.eq(false)
   })
+
+  it('new failure', () => {
+    cy.wait(2000)
+    expect(false).to.eq(true)
+  })
+
+  it('another new failure', () => {
+    cy.wait(2000)
+    expect(false).to.eq(true)
+  })
 })

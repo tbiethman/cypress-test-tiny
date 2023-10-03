@@ -25,4 +25,14 @@ describe('baseline functionality', () => {
     cy.wait(500)
     expect(true).to.eq(true)
   })
+
+  it('new failure', () => {
+    cy.wait(2000)
+    expect(false).to.eq(true)
+  })
+
+  it('another new failure', () => {
+    cy.wait(2000)
+    expect(false).to.eq(true)
+  })
 })

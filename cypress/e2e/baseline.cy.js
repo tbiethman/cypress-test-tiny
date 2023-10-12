@@ -25,4 +25,8 @@ describe('baseline functionality', () => {
     cy.wait(500)
     expect(true).to.eq(true)
   })
+
+  it('has another failing test', () => {
+    expect(true).to.eq(false)
+  })
 })

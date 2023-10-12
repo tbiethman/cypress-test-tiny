@@ -38,4 +38,8 @@ describe('new feature functionality', () => {
   it('tests milestone 2 change 2', () => {
     expect(true).to.eq(false)
   })
+
+  it('has another failing test', () => {
+    expect(true).to.eq(false)
+  })
 })

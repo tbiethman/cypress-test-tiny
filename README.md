@@ -2,6 +2,12 @@
 
 > Tiny Cypress E2E test case
 
+
+
+
+
+
+
 Build status | Name | Description
 :--- | :--- | :---
 [![CircleCI](https://circleci.com/gh/cypress-io/cypress-test-tiny.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-test-tiny) | CircleCI | Linux & Mac & Win 64

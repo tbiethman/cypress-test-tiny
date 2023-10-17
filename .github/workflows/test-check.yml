@@ -5,7 +5,7 @@ on:
   pull_request
   
 jobs:
-  start-check:
+  create-check:
     runs-on: ubuntu-latest
     permissions:
       checks: write   # Permission to create a Check Run

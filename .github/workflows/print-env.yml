@@ -1,9 +1,9 @@
-name: test
+name: Print Environment
 # This workflow represents a set of basic End-to-End tests
 on: pull_request
 
 jobs:
-  environment: 
+  print-environment: 
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context

@@ -19,5 +19,5 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -H "Authorization: Bearer ${{ github.token }} " \
-            https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
+            https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
             -d '{"state":"success","target_url":"https://example.com/build/status","description":"Commit status on PR succeeded!","context":"tyler/testing/pr-commit-status"}'

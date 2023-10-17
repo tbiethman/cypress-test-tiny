@@ -46,7 +46,7 @@ jobs:
             /repos/${{ github.repository }}/check-runs/${{ github.event.client_payload.checkRunId }} \
             --input - <<- EOF
             {
-              "conclusion": "success",
+              "conclusion": "failure",
               "details_url": "https://details.kenmuse.com",
               "output": {
                 "title": "My Check Run Title 🚀",

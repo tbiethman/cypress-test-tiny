@@ -13,6 +13,7 @@ jobs:
       - name: Create Commit Status
         env:
           GH_TOKEN: ${{ github.token }} # Expose the token for GH CLI
+          PR_NUMBER: ${{ github.event.number }}
         run: |
           curl -L \
             -X POST \
@@ -20,7 +21,7 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -H "Authorization: Bearer ${{ github.token }} " \
             https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
-            -d '{"state":"pending","target_url":"https://example.com/build/status","description":"Getting PR info","context":"tyler/testing/pr-commit-status"}'
+            -d '{"state":"pending","target_url":"https://example.com/build/status","description":"Getting PR info","context":"tyler/testing/pr-${{ PR_NUMBER }}-status"}'
             
       - name: Processing        
         run: sleep 10
@@ -47,7 +48,7 @@ jobs:
         run: |        
           details='{"state":"success","target_url":"https://example.com/build/status","description":"Got merge base '
           details+="$MERGE_BASE_SHA"
-          details+='","context":"tyler/testing/pr-commit-status"}'
+          details+='","context":"tyler/testing/pr-${{ PR_NUMBER }}-status"}'
 
           echo $details
           

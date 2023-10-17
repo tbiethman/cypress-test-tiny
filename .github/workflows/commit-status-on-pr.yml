@@ -48,6 +48,8 @@ jobs:
           details='{"state":"passed","target_url":"https://example.com/build/status","description":"Got merge base '
           details+="$MERGE_BASE_SHA"
           details+='","context":"tyler/testing/pr-commit-status"}'
+
+          echo $details
           
           curl -L \
             -X POST \

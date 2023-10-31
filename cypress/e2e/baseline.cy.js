@@ -1,4 +1,16 @@
 describe('baseline functionality', () => {
+  beforeEach(() => {
+    cy.wait(100)
+    console.log('before each')
+  })
+
+  it('simple visit', () => {
+    cy.visit('https://docs.cypress.io')
+    cy.contains('Why Cypress?').should('be.visible')
+    cy.contains('Key Differences').eq(0).click()
+    cy.wait(2000)
+  })
+
   it('has a passing test', () => {
     cy.wait(500)
     expect(true).to.eq(true)
@@ -33,6 +45,7 @@ describe('baseline functionality', () => {
 
   it('another new failure', () => {
     cy.wait(2000)
+    expect(true).to.eq(true)
     expect(false).to.eq(true)
   })
 })

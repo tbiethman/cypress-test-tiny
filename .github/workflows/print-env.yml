@@ -64,7 +64,7 @@ jobs:
       - name: Issue number
         run: echo '${{steps.get_issue_number.outputs.result}}'
 
-  e2e:
+  e2e-default:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -79,3 +79,22 @@ jobs:
           CYPRESS_RECORD_KEY: 09d7100d-e15b-4463-b523-43cde830ffce
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  e2e-head-commit:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Cypress tests
+        uses: cypress-io/github-action@v6.4.0
+        with:
+          record: true
+        env:
+          DEBUG: commit-info,cypress:server
+          # pass the Cypress Cloud record key as an environment variable
+          CYPRESS_RECORD_KEY: 09d7100d-e15b-4463-b523-43cde830ffce
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

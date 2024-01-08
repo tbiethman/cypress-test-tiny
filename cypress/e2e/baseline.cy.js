@@ -4,7 +4,7 @@ describe('baseline functionality', () => {
   //   expect(true).to.eq(true)
   // })
 
-  it('has a very flaky test', () => {
+  it('has a infrequent flaky test', () => {
     cy.wait(500)
     expect(true).to.eq(false)
   })
@@ -15,11 +15,11 @@ describe('baseline functionality', () => {
   //   expect(true).to.eq(true)
   // })
 
-  // it('has a flaky test', { retries: 3 }, () => {
-  //   const attempt = cy.state('runnable')._currentRetry
+  it('has a consistent flaky test', { retries: 3 }, () => {
+    const attempt = cy.state('runnable')._currentRetry
 
-  //   expect(attempt).to.eq(3)
-  // })
+    expect(attempt).to.eq(3)
+  })
 
   // it('has another passing test', () => {
   //   cy.wait(500)

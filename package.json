@@ -17,8 +17,11 @@
   "author": "Gleb Bahmutov <gleb@cypress.io>",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^13.6.2",
     "ok-file": "1.5.2",
-    "cypress": "https://cdn.cypress.io/beta/npm/13.0.0/linux-x64/release/13.0.0-5d1e07a7aa228745b5e742aa3e912fcbd4cb217f/cypress.tgz"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "webpack": "^5.89.0"
   },
   "repository": {
     "type": "git",

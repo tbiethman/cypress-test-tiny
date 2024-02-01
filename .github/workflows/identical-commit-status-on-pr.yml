@@ -20,4 +20,4 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -H "Authorization: Bearer ${{ github.token }} " \
             https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
-            -d '{"state":"failure","target_url":"https://example.com/build/status-pr","description":"Commit status on push succeeded!","context":"tyler/testing/identical-commit-status"}'            
+            -d '{"state":"failure","target_url":"https://example.com/build/status-pr-${{ github.event.number }}","description":"Commit status on PR succeeded!","context":"tyler/testing/identical-commit-status"}'            

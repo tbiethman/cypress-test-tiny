@@ -1,9 +1,9 @@
-name: Print Environment
+name: test
 # This workflow represents a set of basic End-to-End tests
-on: pull_request
+on: [push, pull_request]
 
 jobs:
-  print-environment: 
+  environment: 
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -63,4 +63,38 @@ jobs:
           result-encoding: string
       - name: Issue number
         run: echo '${{steps.get_issue_number.outputs.result}}'
-        
+
+  e2e-default:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress tests
+        uses: cypress-io/github-action@v6.4.0
+        with:
+          record: true
+        env:
+          DEBUG: commit-info,cypress:server
+          # pass the Cypress Cloud record key as an environment variable
+          CYPRESS_RECORD_KEY: 09d7100d-e15b-4463-b523-43cde830ffce
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  e2e-head-commit:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Cypress tests
+        uses: cypress-io/github-action@v6.4.0
+        with:
+          record: true
+        env:
+          DEBUG: commit-info,cypress:server
+          # pass the Cypress Cloud record key as an environment variable
+          CYPRESS_RECORD_KEY: 09d7100d-e15b-4463-b523-43cde830ffce
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

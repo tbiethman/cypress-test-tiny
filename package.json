@@ -18,7 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "ok-file": "1.5.2",
-    "cypress": "https://cdn.cypress.io/beta/npm/13.0.0/linux-x64/release/13.0.0-5d1e07a7aa228745b5e742aa3e912fcbd4cb217f/cypress.tgz"
+    "cypress": "^13.3.0"
   },
   "repository": {
     "type": "git",

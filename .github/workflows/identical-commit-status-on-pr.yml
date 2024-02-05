@@ -1,16 +1,16 @@
-name: Commit Status On PR
+name: Identical Commit Status On PR
 
 # To trigger the check
 on: pull_request
   
 jobs:
-  add-commit-status:
+  add-identical-commit-status-pr:
     runs-on: ubuntu-latest
     # permissions:
     #   checks: write   # Permission to create a Check Run
     #   contents: write # Permission to write a repository_dispatch requests
     steps:
-      - name: Create Commit Status
+      - name: Create Commit Status PR
         env:
           GH_TOKEN: ${{ github.token }} # Expose the token for GH CLI
         run: |
@@ -20,44 +20,4 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -H "Authorization: Bearer ${{ github.token }} " \
             https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
-            -d '{"state":"pending","target_url":"https://example.com/build/status","description":"Getting PR info","context":"tyler/testing/pr-${{ github.event.number }}-status"}'
-            
-      - name: Processing        
-        run: sleep 10
-
-      - name: Get Merge Base
-        env:
-          GH_TOKEN: ${{ github.token }} # Expose the token for GH CLI
-        run: |
-          MERGE_BASE_SHA=$(gh api -X POST -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            -f name='Super Check' \
-            -f head_sha='${{ github.event.pull_request.head.sha }}' \
-            -f status='queued' \
-            -f 'output[title]=My Check Run Title' \
-            -f 'output[summary]=A *fancy* summary' \
-            -f 'output[text]=More detailed Markdown **text**' \
-            --jq '.base.sha' \
-            /repos/${{ github.repository }}/pulls/${{ github.event.number }})
-          echo "MERGE_BASE_SHA=$(echo $MERGE_BASE_SHA)" >> $GITHUB_ENV
-
-      - name: Update Status
-        env:
-          GH_TOKEN: ${{ github.token }} # Expose the token for GH CLI
-        run: |        
-          details='{"state":"success","target_url":"https://example.com/build/status","description":"Got merge base '
-          details+="$MERGE_BASE_SHA"
-          details+='","context":"tyler/testing/identical-commit-status"}'
-
-          echo $details
-          
-          curl -L \
-            -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            -H "Authorization: Bearer ${{ github.token }}" \
-            https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
-            -d "$details"
-
-        
-        
+            -d '{"state":"failure","target_url":"https://example.com/build/status-pr-${{ github.event.number }}","description":"Commit status on PR succeeded! ${{ github.sha }}","context":"tyler/testing/identical-commit-status-merge-commit"}'            

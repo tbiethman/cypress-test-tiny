@@ -38,4 +38,14 @@ describe('new feature functionality', () => {
   it('tests milestone 2 change 2', () => {
     expect(true).to.eq(false)
   })
+
+  it('works in chrome', { browser: 'chrome' }, () => {
+    expect(true).to.eq(false)
+  })
+
+  it('works in firefox', { browser: 'firefox', retries: 3 }, () => {
+    const attempt = cy.state('runnable')._currentRetry
+
+    expect(attempt).to.eq(3)
+  })
 })
